@@ -7,13 +7,16 @@
     <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
-    <h1>Mon titre</h1>
+    <h1>Product Catalog</h1>
     <ul>
         {% for product in products %}
             <li>
+                <a href="{% url 'product_details' product.id %}">
+                    <img src = "{{ product.img.url }}" alt = "{{ product.name }}">
+                </a>
+
                 <strong>{{ product.name }}</strong>
-                <p>{{ product.description }}</p>
-                <img src = "{% static '/images/132.png' %}">
+                <p>Prix : {{ product.price }} €</p>
             </li>
         {% endfor %}
     </ul>
