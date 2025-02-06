@@ -4,10 +4,31 @@
     <meta charset="UTF-8">
     <title>Mon site</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="{% static 'styles.css' %}?v={{ request.timestamp }}">
 </head>
 <body>
     <h1>Product Catalog</h1>
+    <div class="s_container">
+        <form method="GET" action="{% url 'product_list' %}">
+            <input type="text" name="q" placeholder="Rechercher un produit..." class="s_input" value="{{ request.GET.q }}">
+            <button type="submit" class="s_button">Rechercher</button>
+        </form>
+
+        <form method="GET" action="{% url 'product_list' %}" class="filter-form">
+            <div class="dropdown">
+                <button type="button" class="dropdown-toggle">Prix</button>
+                <div class="dropdown-menu">
+                    <label for="min_price">Prix min (€)</label>
+                    <input type="number" name="min_price" id="min_price" class="filter-input" placeholder="Ex. 10" value="{{ request.GET.min_price }}">
+
+                    <label for="max_price">Prix max (€)</label>
+                    <input type="number" name="max_price" id="max_price" class="filter-input" placeholder="Ex. 100" value="{{ request.GET.max_price }}">
+
+                    <button type="submit" class="filter-button">Filtrer</button>
+                </div>
+            </div>
+        </form>
+    </div>
     <ul>
         {% for product in products %}
             <li>
