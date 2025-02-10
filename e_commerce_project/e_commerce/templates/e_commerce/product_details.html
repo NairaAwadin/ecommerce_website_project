@@ -24,6 +24,10 @@
             <h2>Description</h2>
             <p>{{ details.description }}</p>
         </div>
+
+        <div class="ajouter_au_panier">
+            <a href="{% url 'ajouter_au_panier' product.id %}" class="ajouter_panier">Ajouter au panier</a>
+        </div>
     </div>
 </body>
 </html>

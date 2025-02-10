@@ -28,6 +28,9 @@
                 </div>
             </div>
         </form>
+        
+            <a href="{% url 'afficher_panier' %}" class="panier">Voir le panier</a>
+        
     </div>
     <ul>
         {% for product in products %}
@@ -38,6 +41,7 @@
 
                 <strong>{{ product.name }}</strong>
                 <p>Prix : {{ product.price }} €</p>
+                <a href="{% url 'ajouter_au_panier' product.id %}" class="ajouter_panier">Ajouter au panier</a>
             </li>
         {% endfor %}
     </ul>

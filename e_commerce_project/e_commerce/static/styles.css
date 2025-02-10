@@ -13,8 +13,8 @@ h1 {
     text-align: left;
     font-size: 2rem;
     color: #E2E8F0;
-    //violet = #8A2BE2
-    //jaune = #FFEB5A
+    /*violet = #8A2BE2*/
+    /*jaune = #FFEB5A*/
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
     animation: glow 2s infinite alternate;
@@ -113,7 +113,7 @@ img:hover {
     background-color: #1E293B;
     border-radius: 15px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-    color: #FFEB5A;  // prix en jaune
+    color: #FFEB5A;  /*prix en jaune*/
     font-family: 'Poppins', sans-serif;
     text-align: center;
 }
@@ -185,7 +185,7 @@ img:hover {
 }
 
 .dropdown-menu {
-    //opacity: 0;
+    /*opacity: 0;*/
     visibility: hidden;
     position: absolute;
     background: white;
@@ -221,3 +221,27 @@ img:hover {
     background: #3A506B;
 }
 
+.panier{
+    background: #3A506B;
+    color: white;
+    border: 1px solid #FFEB5A;
+    cursor: pointer;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1rem;
+    padding: 10px 15px;
+    margin: 20px;
+    text-decoration: none;
+}
+
+.ajouter_panier{
+    background: #063670;
+    color: white;
+    border: 1px solid #FFEB5A;
+    cursor: pointer;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1rem;
+    padding: 10px 15px;
+    text-decoration: none;
+}
