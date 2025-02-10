@@ -11,11 +11,3 @@ class product(models.Model):
 
     def __str__(self):
         return self.name
-
-#class Cart(models.Model):
-    #user = models.ForeignKey(User, on_delete=models.CASCADE)
-    #product = models.ForeignKey(product, on_delete=models.CASCADE)
-    #quantity = models.PositiveIntegerField(default=1)
-
-    #def total(self):
-    #    return self.product.prix * self.quantity

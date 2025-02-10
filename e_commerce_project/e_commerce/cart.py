@@ -2,7 +2,7 @@ from django.conf import settings
 from .models import product
 
 class panier:
-    def __init__(self, request):
+    def init(self, request):
         self.session = request.session
         panier = self.session.get(settings.CART_SESSION_ID)
         if not panier:
@@ -28,13 +28,13 @@ class panier:
             del self.panier[product_id]
             self._sauvegarder()
 
-    def _sauvegarder(self):
+    def sauvegarder(self):
         self.session[settings.CART_SESSION_ID] = self.panier
         self.session.modified = True
 
-    def __iter__(self):
+    def iter(self):
         products_ids = self.panier.keys()
-        products = product.objects.filter(id__in=products_ids)
+        products = product.objects.filter(id_in=products_ids)
         panier = self.panier.copy()
         for product in products:
             panier[str(product.id)]['product'] = product
