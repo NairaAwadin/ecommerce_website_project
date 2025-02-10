@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends 'product_list.html' %}
+
+{% block content %}
+<h2>Votre Panier</h2>
+<table>
+    <tr>
+        <th>Produit</th>
+        <th>Quantité</th>
+        <th>Prix</th>
+        <th>Total</th>
+        <th>Action</th>
+    </tr>
+    {% for item in panier %}
+    <tr>
+        <td>{{ item.product.name }}</td>
+        <td>{{ item.quantite }}</td>
+        <td>{{ item.price }}€</td>
+        <td>{{ item.total }}€</td>
+        <td>
+            <a href="{% url 'supprimer_du_panier' item.produit.id %}" class="btn btn-danger">Supprimer</a>
+        </td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="5">Votre panier est vide.</td>
+    </tr>
+    {% endfor %}
+</table>
+<h3>Total : {{ total }}€</h3>
+<a href="{% url 'vider_panier' %}" class="btn btn-warning">Vider le panier</a>
+<a href="{% url 'product_list' %}" class="btn btn-secondary">Retour aux produits</a>
+{% endblock %}
+</body>
+</html>
