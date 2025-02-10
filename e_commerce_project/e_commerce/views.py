@@ -27,14 +27,15 @@ def product_details(request, id):
     return render(request, 'e_commerce/product_details.html', {'details': details})
 
 def afficher_panier(request):
-    panier = request.session.get('panier', {})
+    #panier = request.session.get('panier', {})
 
-    for item in panier.values():
-        print(f"Produit: {item}, Price: {item.get('price')}") 
+    #for item in panier.values():
+      #  print(f"Produit: {item}, Price: {item.get('price')}") 
 
-    total = sum(float(item['price'] or 0) * item['quantite'] for item in panier.values())
+    #total = sum(float(item['price'] or 0) * item['quantite'] for item in panier.values())
 
-    return render(request, 'cart.html', {'panier': panier, 'total': total})
+    #return render(request, 'cart.html', {'panier': panier, 'total': total})
+    return render(request,'cart.html')
 
 def ajouter_au_panier(request, produit_id):
     panier = panier(request)
