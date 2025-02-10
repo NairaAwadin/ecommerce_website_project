@@ -48,5 +48,3 @@ class panier:
         self.session.modified = True
 
         # trouver comment afficher le prix total
-
-    
