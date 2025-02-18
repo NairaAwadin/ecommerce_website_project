@@ -43,3 +43,11 @@ def add_to_cart(request, product_id):
 def clear_cart(request):
     cart.clear()
     return redirect('display_cart')
+
+def increase_quantity(request, product_id):
+    cart.increase_quantity(product_id)
+    return redirect('display_cart')
+
+def decrease_quantity(request, product_id):
+    cart.decrease_quantity(product_id)
+    return redirect('display_cart')

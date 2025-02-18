@@ -19,7 +19,14 @@
                     <strong>{{ item.product.name }}</strong>
                     <div class="cart_info">
                         <p class="cart_price">Prix: {{ item.product.price }} €</p>
-                        <p class="quantity">Quantité: {{ item.quantity }} </p>
+                        <div class="quantity-wrapper">
+                            <span class="quantity-label">Quantité:</span>
+                            <div class="quantity-controls">
+                                <a href="{% url 'decrease_quantity' item.product.id %}" class="quantity-btn minus">-</a>
+                                <span class="quantity">{{ item.quantity }}</span>
+                                <a href="{% url 'increase_quantity' item.product.id %}" class="quantity-btn plus">+</a>
+                            </div>
+                        </div>
                     </div>
                 </li>
             {% endfor %}

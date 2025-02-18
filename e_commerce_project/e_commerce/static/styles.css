@@ -317,3 +317,41 @@ img:hover {
     color: white;
     margin-top: 20px;
 }
+
+/* style pour les boutons + et - */
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 10px;
+}
+
+.quantity-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    background-color: #063670;
+    color: white;
+    border: 1px solid #0A192F;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.quantity-btn:hover {
+    background-color: rgba(6, 54, 112, 0.51);
+    transform: scale(1.05);
+}
+
+.quantity {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #FFEB5A;
+    padding: 5px 10px;
+    margin-top: 5px;
+}

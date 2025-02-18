@@ -23,3 +23,14 @@ class cart:
         for item in self.items.values():
             total += float(item['product'].price) * item['quantity']
         return total
+
+    def increase_quantity(self, product_id):
+        if product_id in self.items:
+            self.items[product_id]['quantity'] += 1
+
+    def decrease_quantity(self, product_id):
+        if product_id in self.items:
+            if self.items[product_id]['quantity'] > 1:
+                self.items[product_id]['quantity'] -= 1
+            else:
+                del self.items[product_id]
