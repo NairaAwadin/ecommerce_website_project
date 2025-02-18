@@ -1,6 +1,6 @@
 /* Basic body styling */
 body {
-    font-family: press start 2p, sans-serif;
+    font-family: 'Alfa Slab One', sans-serif;
     margin: 20px;
     line-height: 1.6;
     background-color: #0A192F;
@@ -18,9 +18,24 @@ h1 {
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
     animation: glow 2s infinite alternate;
+
 }
 
 h1:hover {
+    text-shadow: 3px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+h2 {
+    animation: fadeIn 1.5s ease-in-out forwards;
+    text-align: center;
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: #E2E8F0;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+h2:hover {
     text-shadow: 3px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
@@ -35,6 +50,21 @@ h1:hover {
     to { opacity: 1; transform: translateY(0); }
 }
 
+.panier {
+    position: absolute;
+    top: 25px;
+    right: 35px;
+    animation: fadeIn 1.5s ease-in-out forwards;
+    text-align: right;
+    font-size: 1.5rem;
+    color:rgb(226, 232, 240);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.panier:hover {
+    color:rgba(126, 158, 180, 0.56);
+}
 /* Style the task list */
 ul {
     display: flex;
@@ -165,7 +195,7 @@ img:hover {
     padding: 10px 20px;
     background-color: #3A506B;
     color: white;
-    border: 1px solid black;
+    border: 1px solid #0A192F;
     border-radius: 0 25px 25px 0;
     font-size: 1rem;
     margin : 20px;
@@ -221,27 +251,69 @@ img:hover {
     background: #3A506B;
 }
 
-.panier{
-    background: #3A506B;
-    color: white;
-    border: 1px solid #FFEB5A;
-    cursor: pointer;
-    border-radius: 10px;
-    text-align: center;
-    font-size: 1rem;
-    padding: 10px 15px;
-    margin: 20px;
-    text-decoration: none;  /*bouton panier*/
-}
-
 .ajouter_panier{
     background: #063670;
     color: white;
-    border: 1px solid #FFEB5A;
+    border: 1px solid #0A192F;
     cursor: pointer;
-    border-radius: 10px;
+    border-radius: 20px;
     text-align: center;
-    font-size: 1rem;
+    font-size: 0,8rem;
+    padding: 6px 12px;
+    text-decoration: none;
+    margin-top: 10px;
+  /*bouton ajouter au panier*/
+}
+
+.ajouter_panier:hover {
+    background-color:rgba(6, 54, 112, 0.51);
+}
+
+.cart_price, .quantity {
+    display: inline-block;
+    font-size: 0,9rem;
+    color: #FFEB5A;
+    padding: 5px 10px;
+    margin-top: 5px;
+}
+
+.cart_info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart_total {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color:rgb(255, 255, 255);
     padding: 10px 15px;
-    text-decoration: none;  /*bouton ajouter au panier*/
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.cart_clear {
+    margin-top: 20px;
+    padding: 12px 25px;
+    position: absolute;
+    left: 20px;
+    bottom: 55px;
+    background-color: #063670;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.cart_clear:hover {
+    background-color:rgba(110, 30, 184, 0);
+    transform: scale(1.05);
+}
+
+.empty {
+    font-size: 1.5rem;
+    color: white;
+    margin-top: 20px;
 }

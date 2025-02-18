@@ -1,50 +1,25 @@
-from django.conf import settings
 from .models import product
 
-class panier:
-    def init(self, request):
-        self.session = request.session
-        panier = self.session.get(settings.CART_SESSION_ID)
-        if not panier:
-            panier = self.session[settings.CART_SESSION_ID] = {}
-        self.panier = panier
-       # self.panier(product_id) == {
-       # 'name': product.nom,
-       # 'price': float(product.prix),
-        #'quantite': 1
+class cart:
+    def __init__(self):
+        self.items = {}
 
-
-    def ajouter(self, product_id, quantite=1):
-        product_id = str(product_id)
-        if product_id in self.panier:
-            self.panier[product_id]['quantite'] += quantite
+    def add(self, product_id, quantity=1):
+        product_obj = product.objects.get(id=product_id)
+        if product_id not in self.items:
+            self.items[product_id] = {'product': product_obj, 'quantity': quantity}
         else:
-            self.panier[product_id] = {'quantite': quantite, 'price': str(product.objects.get(id=product_id).price)}
-        self._sauvegarder()
+            self.items[product_id]['quantity'] += quantity
 
-    def supprimer(self, product_id):
-        product_id = str(product_id)
-        if product_id in self.panier:
-            del self.panier[product_id]
-            self._sauvegarder()
+    def remove(self, product_id):
+        if product_id in self.items:
+            del self.items[product_id]
 
-    def sauvegarder(self):
-        self.session[settings.CART_SESSION_ID] = self.panier
-        self.session.modified = True
+    def clear(self):
+        self.items = {}
 
-    def iter(self):
-        products_ids = self.panier.keys()
-        products = product.objects.filter(id_in=products_ids)
-        panier = self.panier.copy()
-        for product in products:
-            panier[str(product.id)]['product'] = product
-        for item in panier.values():
-            item['price'] = (item['price'])
-            item['total'] = item['price'] * item['quantite']
-            yield item
-
-    def vider(self):
-        self.session[settings.CART_SESSION_ID] = {}
-        self.session.modified = True
-
-        # trouver comment afficher le prix total
+    def total_price(self):
+        total = 0
+        for item in self.items.values():
+            total += float(item['product'].price) * item['quantity']
+        return total

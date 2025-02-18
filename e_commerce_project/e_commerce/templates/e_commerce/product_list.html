@@ -19,18 +19,18 @@
                 <button type="button" class="dropdown-toggle">Prix</button>
                 <div class="dropdown-menu">
                     <label for="min_price">Prix min (€)</label>
-                    <input type="number" name="min_price" id="min_price" class="filter-input" placeholder="Ex. 10" value="{{ request.GET.min_price }}">
+                    <input type="number" name="min_price" id="min_price" class="filter-input" placeholder="10" value="{{ request.GET.min_price }}">
 
                     <label for="max_price">Prix max (€)</label>
-                    <input type="number" name="max_price" id="max_price" class="filter-input" placeholder="Ex. 100" value="{{ request.GET.max_price }}">
+                    <input type="number" name="max_price" id="max_price" class="filter-input" placeholder="100" value="{{ request.GET.max_price }}">
 
                     <button type="submit" class="filter-button">Filtrer</button>
                 </div>
             </div>
         </form>
-        
-            <a href="{% url 'afficher_panier' %}" class="panier">Voir le panier</a>
-        
+
+            <a href="{% url 'display_cart' %}" class="panier">Panier</a>
+
     </div>
     <ul>
         {% for product in products %}
@@ -41,7 +41,7 @@
 
                 <strong>{{ product.name }}</strong>
                 <p>Prix : {{ product.price }} €</p>
-                <a href="{% url 'ajouter_au_panier' product.id %}" class="ajouter_panier">Ajouter au panier</a>
+                <a href="{% url 'add_to_cart' product.id %}" class="ajouter_panier">Ajouter au panier</a>
             </li>
         {% endfor %}
     </ul>
