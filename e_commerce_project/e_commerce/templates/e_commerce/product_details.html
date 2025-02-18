@@ -18,6 +18,7 @@
         <div class="infos">
             <strong>{{ details.name }}</strong>
             <p>Prix: {{ details.price }} €</p>
+            <a href="{% url 'add_to_cart' details.id %}" class="ajouter_panier">Ajouter au panier</a>
         </div>
 
         <div class="description">
