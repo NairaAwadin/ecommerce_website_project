@@ -1,7 +1,14 @@
+"""
+    EEMI E-commerce project, 2025
+    E-commerce website in Django
+    file description:
+    This file is used to define the views
+"""
+
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, JsonResponse
-from .models import product
+from .models import product, Order, OrderItem
 from .cart import cart
 
 # Create your views here
@@ -51,3 +58,21 @@ def increase_quantity(request, product_id):
 def decrease_quantity(request, product_id):
     cart.decrease_quantity(product_id)
     return redirect('display_cart')
+
+def register_order(request):
+    if cart.items:
+        order = Order.objects.create()
+        for item in cart.items.values():
+            OrderItem.objects.create(
+                order=order,
+                product=item['product'],
+                quantity=item['quantity'],
+                price=item['product'].price
+            )
+        cart.clear()
+        return render(request, 'e_commerce/order_confirmation.html')
+    return redirect('display_cart')
+
+def order_history(request):
+    orders = Order.objects.all().order_by('-created_at')
+    return render(request, 'e_commerce/order_history.html', {'orders': orders})

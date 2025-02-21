@@ -1,6 +1,13 @@
+"""
+    EEMI E-commerce project, 2025
+    E-commerce website in Django
+    file description:
+    This file is used to link the views to the urls
+"""
+
 from django.urls import path
 from .import views
-from .views import add_to_cart, display_cart, clear_cart, increase_quantity, decrease_quantity
+from .views import add_to_cart, display_cart, clear_cart, increase_quantity, decrease_quantity, register_order, order_history
 
 urlpatterns = [
     path('', views.product_list, name='product_list'),
@@ -12,4 +19,6 @@ urlpatterns = [
     path('cart/clear/', clear_cart, name='clear_cart'),
     path('cart/increase/<int:product_id>/', increase_quantity, name='increase_quantity'),
     path('cart/decrease/<int:product_id>/', decrease_quantity, name='decrease_quantity'),
+    path('order/', register_order, name='register_order'),
+    path('order/history/', order_history, name='order_history'),
 ]

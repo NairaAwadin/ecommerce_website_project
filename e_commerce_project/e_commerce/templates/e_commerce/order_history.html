@@ -1,0 +1,36 @@
+<!--
+-- EEMI E-commerce project, 2025
+-- E-commerce website in Django
+-- file description:
+-- This file displays the order history page
+-->
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Historique des commandes</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}?v={{ request.timestamp }}">
+</head>
+<body>
+    <h1>Product Catalog</h1>
+    <h2>Historique des commandes</h2>
+    {% for order in orders %}
+        <div class="order">
+            <h3>Commande #{{ order.id }} - {{ order.created_at }}</h3>
+            <ul>
+                {% for item in order.orderitem_set.all %}
+                    <li class="order_item">
+                        <img src="{{ item.product.img.url }}" alt="{{ item.product.name }}" class="order-item-img">
+                        <strong>{{ item.product.name }}</strong> - {{ item.quantity }} x {{ item.price }} €
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <a class="product_list_page" href="{% url 'product_list' %}">Retour aux produits</a>
+    {% empty %}
+        <p>Vous n'avez encore passé aucune commande.</p>
+    {% endfor %}
+</body>
+</html>

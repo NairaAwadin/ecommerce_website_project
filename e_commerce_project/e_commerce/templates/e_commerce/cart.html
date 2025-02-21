@@ -1,3 +1,10 @@
+<!--
+-- EEMI E-commerce project, 2025
+-- E-commerce website in Django
+-- file description:
+-- This file disolays the cart page
+-->
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -33,6 +40,8 @@
         </ul>
         <p class="cart_total">Total : {{ total }} €</p>
         <a class="cart_clear" href="{% url 'clear_cart' %}">Vider le panier</a>
+        <a class="cart_order" href="{% url 'register_order' %}">Commander</a>
+
     {% else %}
         <p class="empty"> Votre panier est vide.</p>
     {% endif %}

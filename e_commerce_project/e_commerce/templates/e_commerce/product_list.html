@@ -1,3 +1,10 @@
+<!--
+-- EEMI E-commerce project, 2025
+-- E-commerce website in Django
+-- file description:
+-- This file displays the product list page
+-->
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -8,6 +15,10 @@
 </head>
 <body>
     <h1>Product Catalog</h1>
+    <marquee>
+        <p class="marquee-text">OFFRE SPECIALE Pour une figurine achetée, une dose de bonheur offerte...</p>
+    </marquee>
+
     <div class="s_container">
         <form method="GET" action="{% url 'product_list' %}">
             <input type="text" name="q" placeholder="Rechercher un produit..." class="s_input" value="{{ request.GET.q }}">
@@ -16,7 +27,7 @@
 
         <form method="GET" action="{% url 'product_list' %}" class="filter-form">
             <div class="dropdown">
-                <button type="button" class="dropdown-toggle">Prix</button>
+                <button type="button" class="dropdown-toggle">Filtre</button>
                 <div class="dropdown-menu">
                     <label for="min_price">Prix min (€)</label>
                     <input type="number" name="min_price" id="min_price" class="filter-input" placeholder="10" value="{{ request.GET.min_price }}">
@@ -29,7 +40,10 @@
             </div>
         </form>
 
-            <a href="{% url 'display_cart' %}" class="panier">Panier</a>
+            <!--<a href="{% url 'display_cart' %}" class="panier">Panier</a>-->
+            <a href="{% url 'display_cart' %}" class="panier">
+                <img src="media/images/panier.png" alt="Panier">
+            </a>
 
     </div>
     <ul>

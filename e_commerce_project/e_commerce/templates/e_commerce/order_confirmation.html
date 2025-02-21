@@ -1,0 +1,22 @@
+<!--
+-- EEMI E-commerce project, 2025
+-- E-commerce website in Django
+-- file description:
+-- This file displays the order confirmation page
+-->
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmation commandes</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}?v={{ request.timestamp }}">
+</head>
+<body>
+    <h1>Product Catalog</h1>
+    <p class="order_message">Merci pour votre commande !</p>
+    <a class="order_history" href="{% url 'order_history' %}">Voir mes commandes</a>
+    <a class="product_list_page" href="{% url 'product_list' %}">Retour aux produits</a>
+</body>
+</html>

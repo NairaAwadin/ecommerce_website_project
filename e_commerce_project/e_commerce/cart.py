@@ -1,3 +1,10 @@
+"""
+    EEMI E-commerce project, 2025
+    E-commerce website in Django
+    file description:
+    This file handles the cart functionalities
+"""
+
 from .models import product
 
 class cart:
