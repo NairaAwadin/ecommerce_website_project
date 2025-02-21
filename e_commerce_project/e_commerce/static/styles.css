@@ -469,3 +469,13 @@ h3 {
     border-radius: 10px;
     margin-bottom: 60px;
 }
+
+footer {
+    color: white;
+    text-align: center;
+    padding: 5px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.7rem;
+    width: 100%;
+    margin: 0;
+}
