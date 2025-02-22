@@ -11,10 +11,10 @@
     <meta charset="UTF-8">
     <title>Historique des commandes</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'styles.css' %}?v={{ request.timestamp }}">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
-    <h1>Product Catalog</h1>
+    <h1>POP Shop</h1>
     <h2>Historique des commandes</h2>
     {% for order in orders %}
         <div class="order">
@@ -32,5 +32,9 @@
     {% empty %}
         <p>Vous n'avez encore passé aucune commande.</p>
     {% endfor %}
+
+    <footer>
+        <p>&copy; 2025 POP Shop. Commandez dès maintenant !</p>
+    </footer>
 </body>
 </html>

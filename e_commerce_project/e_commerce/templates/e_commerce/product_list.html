@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <title>Shop</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'styles.css' %}?v={{ request.timestamp }}">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
     <h1>POP SHOP</h1>
@@ -20,6 +20,17 @@
     </marquee>
 
     <div class="s_container">
+        <div class="menu">
+            <label for="menu-toggle" class="menu-toggle">Menu</label>
+            <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+            <div class="menu-dropdown">
+                <ul>
+                    <li><a href="{% url 'product_list' %}">Shop</a></li>
+                    <li><a href="{% url 'order_history' %}">Commandes</a></li>
+                </ul>
+            </div>
+        </div>
+
         <form method="GET" action="{% url 'product_list' %}">
             <input type="text" name="q" placeholder="Rechercher un produit..." class="s_input" value="{{ request.GET.q }}">
             <button type="submit" class="s_button">Rechercher</button>

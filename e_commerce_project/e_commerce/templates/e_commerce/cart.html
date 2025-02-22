@@ -11,10 +11,10 @@
     <meta charset="UTF-8">
     <title>Panier</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'styles.css' %}?v={{ request.timestamp }}">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
-    <h1>Product Catalog</h1>
+    <h1>POP Shop</h1>
 
     <h2 class="cart">panier</h2>
 
@@ -45,7 +45,6 @@
     {% else %}
         <p class="empty"> Votre panier est vide.</p>
     {% endif %}
-
     <!--<a href="{% url 'product_list' %}">Retour aux produits</a>-->
 </body>
 </html>

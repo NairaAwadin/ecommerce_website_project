@@ -1,9 +1,9 @@
-/*
-** EEMI E-commerce project, 2025
-** E-commerce website in Django
-** file description:
-** This file displays the product list page
-*/
+    /*
+    ** EEMI E-commerce project, 2025
+    ** E-commerce website in Django
+    ** file description:
+    ** This file displays the product list page
+    */
 
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Lato:wght@400;700&display=swap');
 
@@ -46,7 +46,7 @@ h2 {
 }
 
 li strong {
-    ont-family: 'Courier New', sans-serif;
+    font-family: 'Courier New', sans-serif;
     font-size: 1.1rem;
     font-weight: 700;
 }
@@ -71,7 +71,7 @@ li p, .cart_price, .quantity, .ajouter_panier {
 }
 
 .panier img {
-    position: fixe;
+    position: relative;
     width: 40px;
     height: 40px;
     transition: all 0.3s ease;
@@ -94,7 +94,8 @@ li {
     clip-path: polygon(
         0% 5px,
         5px 0%,
-        calc(100% - 5px) 0%,
+
+    calc(100% - 5px) 0%,
         100% 5px,
         100% calc(100% - 5px),
         calc(100% - 5px) 100%,
@@ -133,7 +134,7 @@ li::before {
         left: -150%;
     }
     50% {
-        left: 100%;
+            left: 100%;
     }
     100% {
         left: 150%;
@@ -343,7 +344,6 @@ img:hover {
     margin-top: 100px;
 }
 
-/* style pour les boutons + et - */
 .quantity-controls {
     display: flex;
     align-items: center;
@@ -423,6 +423,7 @@ img:hover {
     box-shadow: 0 0 10px rgba(138, 43, 226, 0.7), 0 0 12px rgba(255, 235, 90, 0.7);
     transform: scale(1.1);
 }
+
 .order_message {
     font-family: 'Press Start 2P', cursive;
     font-size: 1.2rem;
@@ -468,6 +469,69 @@ h3 {
     padding: 5px 10px;
     border-radius: 10px;
     margin-bottom: 60px;
+}
+
+.menu-checkbox {
+    display: none;
+}
+
+.menu-toggle {
+    background-color: #8A2BE2;
+    color: white;
+    border: 2px solid #333;
+    padding: 10px 15px;
+    cursor: pointer;
+    position: absolute;
+    top: 22px;
+    left: 10px;
+    z-index: 20;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.menu-toggle:hover {
+    background-color: #FFEB5A;
+    color: #333;
+    border-color: #222;
+}
+
+.menu-dropdown {
+    display: none;
+    position: relative;
+    background-color: #1E293B;
+    border: 2px solid #8A2BE2;
+    z-index: 10;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    width: 180px;
+}
+
+.menu-checkbox:checked + .menu-dropdown {
+    display: block;
+}
+
+.menu-dropdown ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-dropdown ul li a {
+    text-decoration: none;
+    color: #FFEB5A;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.75rem;
+    display: block;
+    padding: 5px;
+    transition: color 0.3s;
+}
+
+.menu-dropdown ul li a:hover {
+    color: white;
+    text-shadow: 0px 0px 5px #ffcc00;
 }
 
 footer {
